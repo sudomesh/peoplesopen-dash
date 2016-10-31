@@ -3,13 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-eslint": "^7.0.0",
+    "eslint": "^3.8.1",
+    "eslint-config-react-app": "^0.3.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
     "react-scripts": "0.7.0"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
     "react": "^15.3.2",
-    "react-bootstrap": "^0.30.6",
     "react-dom": "^15.3.2"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "scripts": {
     "start": "react-scripts start",
