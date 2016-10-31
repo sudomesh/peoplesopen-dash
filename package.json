@@ -12,8 +12,12 @@
     "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.5",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-addons-css-transition-group": "^15.3.2",
+    "react-addons-transition-group": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "reactstrap": "^3.7.1"
   },
   "eslintConfig": {
     "extends": "react-app"
