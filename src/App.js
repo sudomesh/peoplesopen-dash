@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Button } from 'reactstrap';
+import Frontpage from './Frontpage'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <Button color="primary">Foooooooo</Button>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Frontpage {...{ 
+        neighbors: [ 
+          { name: 'mesh26' },
+          { name: 'mesh11' },
+          { name: 'sally_b' }
+        ],
+        internetNeighbor: 'mesh26',
+        totalTransfered: '10gb',
+        sharing: false
+      }} />
     );
   }
 }

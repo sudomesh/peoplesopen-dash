@@ -1,3 +1,15 @@
-$foo: green;
+// put css in here. You can also override variables found in node_modules/bootstrap/scss/_variables.scss
+
+$font-family-sans-serif: 'Muli-Light';
+$font-size-root: 18px;
+$headings-font-family:   'Dosis' !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 800px,
+  xl: 800px
+);
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
+
