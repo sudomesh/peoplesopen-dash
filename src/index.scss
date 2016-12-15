@@ -2,7 +2,11 @@
 
 $font-family-sans-serif: 'Muli-Light';
 $font-size-root: 18px;
-$headings-font-family:   'Dosis' !default;
+$headings-font-family:   'Dosis';
+
+a {
+  cursor: pointer;
+}
 
 $container-max-widths: (
   sm: 540px,
