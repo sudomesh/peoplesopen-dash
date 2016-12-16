@@ -10,7 +10,6 @@
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
-    "flow-bin": "^0.37.0",
     "node-sass": "^3.10.1",
     "react-scripts": "0.7.0"
   },
@@ -37,7 +36,6 @@
     "background-sass-watcher": "node-sass --watch --recursive src/index.scss -o src/css & WATCH_SASS_PID=$!",
     "compile-sass": "node-sass --recursive src/index.scss -o src/css",
     "start": "npm run compile-sass && npm run background-sass-watcher && npm run dev-server",
-    "build": "npm run compile-sass && node react-scripts build",
-    "flow": "flow"
+    "build": "npm run compile-sass && node react-scripts build"
   }
 }

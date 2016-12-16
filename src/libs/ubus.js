@@ -20,9 +20,9 @@ export default class Ubus {
     if (result[0] === 0) {
       return result[1]
     } else if (result[0] === 6) {
-      throw new Error("ubus: permission denied")
+      throw new Error('ubus: permission denied')
     } else if (result[0] === 5) {
-      throw new Error("ubus: no output")
+      throw new Error('ubus: no output')
     } else {
       throw new Error(`ubus: unknown error code: ${result[0]}`)
     }

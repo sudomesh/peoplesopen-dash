@@ -1,15 +1,9 @@
 import Ubus from '../libs/ubus.js'
 import check from 'check-types'
 import config from '../config.js'
+import actionType from './types.js'
 
 const ubus = new Ubus(config.rpcOptions)
-
-type Action = 
-{
-  type: 'logged in'
-} | {
-  type: 'logged out'
-}
 
 // export function saveSharingSettings (settings) {
 //   return async () => {
@@ -28,6 +22,7 @@ type Action =
 
 export function login (credentials) {
   return async (dispatch, getState) => {
+    console.log('derpington')
     const {
       ubus_rpc_session
     }  = await ubus.call(null, 'session', 'login', credentials)
@@ -41,7 +36,7 @@ export function login (credentials) {
 
     localStorage.setItem('sessionId', ubus_rpc_session)
     const action: Action = {
-      type: 'logged in'
+      type: actionType('logged in')
     }
     return dispatch(action)
   }
@@ -62,7 +57,7 @@ export function logout (dispatch) {
   return (dispatch, getState) => {    
     localStorage.setItem('sessionId', null)
     return dispatch({
-      type: 'logged out'
+      type: actionType('logged out')
     })
   }
 }
@@ -84,7 +79,7 @@ export function fetchUciConfigs () {
     }))
 
     return dispatch({
-      type: 'got uci configs',
+      type: actionType('got uci configs'),
       payload: uciConfigs
     })
   }

@@ -15,6 +15,7 @@ import {
 import routerImg from '../images/myNet-with-sticker.png'
 import { saveSharingSettings } from '../actions/index.js'
 import { connect } from 'react-redux'
+import LoginScreen from './LoginScreen.js'
 
 const styles = {
   item: {
@@ -59,41 +60,45 @@ class Frontpage extends Component {
       toggleModal,
     } = this
 
-    return <Container>
-      <Row>
-        <div style={ styles.center }>
-          <img src={ routerImg } alt="router"/>
-        </div>
-      </Row>
-
-      <Row style={ styles.item }>This is the dashboard for your new PeoplesOpen.net router. If there are enough routers nearby, they form a "mesh network" which can provide internet access.</Row>
-
-      <Row><h3>Status:</h3></Row>
-
-      <Row style={ styles.item }>Right now, you're connected to three neighbor routers: { commaAndString(props.neighbors.map(neighbor => neighbor.name)) }.</Row>
-
-      <Row style={ styles.item }>You're connected to the internet through <b>{ props.internetNeighbor }</b>.</Row>
-
-      <Row style={ styles.item }>So far, you've transferred <b>{ props.totalTransfered }</b> of data between neighbor routers.</Row>
-
-      { props.isSharing ?
+    if (props.isLoggedIn) {
+      return <Container>
         <Row>
-          You are currently sharing your home internet connection to help other nodes on the mesh network get access to the internet.
-
-          You have shared <b>{ props.totalShared }</b> this month.
-
-          Bandwidth sharing is limited to <b>{ props.sharingLimit }</b>. If you connect your devices to this wifi network (<b>{ props.privateSSID }</b>), they will automatically receive priority over other traffic, and you can turn this limit off.
+          <div style={ styles.center }>
+            <img src={ routerImg } alt="router"/>
+          </div>
         </Row>
-      :
-        <Row style={ styles.item }>Your home internet connection is currently <b>not</b> being shared on the mesh network. If you'd like to securely donate a small portion of your own bandwidth to this project, <a tabIndex={0} onClick={ this.toggleModal }>click here to start sharing</a>.</Row>
-      }
 
-      <SharingSettingsModal
-        modalIsOpen={ state.modalIsOpen }
-        toggleModal={ toggleModal } 
-        onSubmit={ sharingSettings => props.dispatch(saveSharingSettings(sharingSettings)) }/>
+        <Row style={ styles.item }>This is the dashboard for your new PeoplesOpen.net router. If there are enough routers nearby, they form a "mesh network" which can provide internet access.</Row>
 
-    </Container>
+        <Row><h3>Status:</h3></Row>
+
+        <Row style={ styles.item }>Right now, you're connected to three neighbor routers: { commaAndString(props.neighbors.map(neighbor => neighbor.name)) }.</Row>
+
+        <Row style={ styles.item }>You're connected to the internet through <b>{ props.internetNeighbor }</b>.</Row>
+
+        <Row style={ styles.item }>So far, you've transferred <b>{ props.totalTransfered }</b> of data between neighbor routers.</Row>
+
+        { props.isSharing ?
+          <Row>
+            You are currently sharing your home internet connection to help other nodes on the mesh network get access to the internet.
+
+            You have shared <b>{ props.totalShared }</b> this month.
+
+            Bandwidth sharing is limited to <b>{ props.sharingLimit }</b>. If you connect your devices to this wifi network (<b>{ props.privateSSID }</b>), they will automatically receive priority over other traffic, and you can turn this limit off.
+          </Row>
+        :
+          <Row style={ styles.item }>Your home internet connection is currently <b>not</b> being shared on the mesh network. If you'd like to securely donate a small portion of your own bandwidth to this project, <a tabIndex={0} onClick={ this.toggleModal }>click here to start sharing</a>.</Row>
+        }
+
+        <SharingSettingsModal
+          modalIsOpen={ state.modalIsOpen }
+          toggleModal={ toggleModal } 
+          onSubmit={ sharingSettings => props.dispatch(saveSharingSettings(sharingSettings)) }/>
+
+      </Container>
+    } else {
+      return <LoginScreen/>
+    }
   }
 }
 

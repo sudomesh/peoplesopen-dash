@@ -1,5 +1,6 @@
 let typesArray = [
-  'logged in'
+  'logged in',
+  'logged out'
 ]
 
 let types = {}

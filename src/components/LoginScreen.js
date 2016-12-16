@@ -10,7 +10,7 @@ import {
   Label,
   Input
 } from 'reactstrap'
-import { saveSharingSettings } from '../actions/index.js'
+import { login } from '../actions/index.js'
 import { connect } from 'react-redux'
 
 class LoginScreen extends Component {
@@ -27,20 +27,20 @@ class LoginScreen extends Component {
       bindState
     } = this
 
-    return <Modal isOpen={ true }>
-      <ModalHeader>Log in to dashboard</ModalHeader>
+    return <Modal toggle={ () => {} } isOpen={ true }>
+      <ModalHeader>Log in to PeoplesOpen.Net dashboard</ModalHeader>
       <ModalBody>
         <Form>
           <FormGroup>
-            <Label for="admin-password">Wifi password</Label>
-            <Input type="password" id="admin-password" onChange={ bindState('admin-password') } />
+            <Label for="password">Admin password</Label>
+            <Input type="password" id="password" onChange={ bindState('password') } />
           </FormGroup>
         </Form>
       </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={() => {
-          props.toggleModal()
-          props.onSubmit(this.state)
+          console.log('derpo')
+          props.dispatch(login(state.password))
         }}>Submit</Button>
       </ModalFooter>
     </Modal>
