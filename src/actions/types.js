@@ -1,5 +1,5 @@
 let typesArray = [
-  'SAVE_SHARING_SETTINGS'
+  'logged in'
 ]
 
 let types = {}
@@ -8,4 +8,8 @@ for (let type of typesArray) {
   types[type] = type
 }
 
-export default types
+export default function (type) {
+  if (!types[type]) {
+    throw new Error('unsupported action type')
+  }
+}

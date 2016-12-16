@@ -10,11 +10,16 @@
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
+    "flow-bin": "^0.37.0",
     "node-sass": "^3.10.1",
     "react-scripts": "0.7.0"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.5",
+    "check-types": "^7.0.1",
+    "es6-promisify": "^5.0.0",
+    "moment": "^2.17.1",
+    "node-json-rpc": "0.0.1",
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",
     "react-addons-transition-group": "^15.3.2",
@@ -32,6 +37,7 @@
     "background-sass-watcher": "node-sass --watch --recursive src/index.scss -o src/css & WATCH_SASS_PID=$!",
     "compile-sass": "node-sass --recursive src/index.scss -o src/css",
     "start": "npm run compile-sass && npm run background-sass-watcher && npm run dev-server",
-    "build": "npm run compile-sass && node react-scripts build"
+    "build": "npm run compile-sass && node react-scripts build",
+    "flow": "flow"
   }
 }

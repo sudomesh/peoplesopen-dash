@@ -12,8 +12,8 @@ import {
   Label,
   Input
 } from 'reactstrap';
-import routerImg from './images/myNet-with-sticker.png'
-import { saveSharingSettings } from './actions/index.js'
+import routerImg from '../images/myNet-with-sticker.png'
+import { saveSharingSettings } from '../actions/index.js'
 import { connect } from 'react-redux'
 
 const styles = {
@@ -56,9 +56,7 @@ class Frontpage extends Component {
     const {
       props,
       state,
-      setState,
       toggleModal,
-      setSharingSetting
     } = this
 
     return <Container>
@@ -142,7 +140,13 @@ class SharingSettingsModal extends Component {
   }
 }
 
-export default connect()(Frontpage)
+export default connect(mapStateToProps)(Frontpage)
+
+function mapStateToProps (state) {
+  return {
+    isLoggedIn: state.isLoggedIn
+  }
+}
 
 export function commaAndString (items) {
   return items.map((item, i, arr) => {
