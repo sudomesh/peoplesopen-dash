@@ -4,5 +4,6 @@ export default {
     host: '172.30.0.1',
     path: '/ubus',
     strict: false
-  }
+  },
+  username: 'admin'
 }

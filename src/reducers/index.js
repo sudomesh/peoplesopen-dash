@@ -6,7 +6,7 @@ const initialState = {
   internetNeighbor: null,
   totalTransfered: '0gb',
   sharing: false,
-  sessionId: '00000000000000000000000000000000'
+  sessionID: '00000000000000000000000000000000'
 }
 
 export default function rootReducer (state = initialState, action: Action) {

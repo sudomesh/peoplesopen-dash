@@ -20,12 +20,11 @@ const ubus = new Ubus(config.rpcOptions)
 //   )
 // }
 
-export function login (credentials) {
+export function login (password) {
   return async (dispatch, getState) => {
-    console.log('derpington')
     const {
       ubus_rpc_session
-    }  = await ubus.call(null, 'session', 'login', credentials)
+    }  = await ubus.call(null, 'session', 'login', { username: config.username, password })
 
     check.assert.nonEmptyString(
       ubus_rpc_session,
@@ -34,7 +33,7 @@ export function login (credentials) {
 
     await dispatch(fetchUciConfigs())
 
-    localStorage.setItem('sessionId', ubus_rpc_session)
+    localStorage.setItem('sessionID', ubus_rpc_session)
     const action: Action = {
       type: actionType('logged in')
     }
@@ -54,8 +53,11 @@ export function loadSession () {
 }
 
 export function logout (dispatch) {
-  return (dispatch, getState) => {    
-    localStorage.setItem('sessionId', null)
+  return async (dispatch, getState) => {
+    const sessionID = localStorage.getItem('sessionID')
+    await dispatch(callUbus('session', 'destroy', { sessionID }))
+    localStorage.setItem('sessionID', null)
+
     return dispatch({
       type: actionType('logged out')
     })
@@ -97,13 +99,13 @@ export function changeSetting (setting) {
 
 export function callUbus (object, method, args) {
   return async (dispatch, getState) => {
-    const sessionId = localStorage.getItem('sessionId') || null
+    const sessionID = localStorage.getItem('sessionID') || null
 
     try {
-      return ubus.call(sessionId, object, method, args)
+      return ubus.call(sessionID, object, method, args)
     } catch (e) {
       if (e.message.match(/session_expired/)) {
-        logout(dispatch)
+        dispatch(logout())
       } else {
         throw e
       }

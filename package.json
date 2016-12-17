@@ -11,7 +11,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
     "node-sass": "^3.10.1",
-    "react-scripts": "0.7.0"
+    "react-scripts": "0.8.4"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.5",
