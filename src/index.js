@@ -7,8 +7,13 @@ import rootReducer from './reducers'
 import thunk from 'redux-thunk'
 import App from './components/App.js'
 import { loadSession } from './actions/index.js'
+console.log(process.env.NODE_ENV
+)
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = process.env.NODE_ENV !== 'production' ?
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ 
+  : compose
+
 const store = createStore(rootReducer, composeEnhancers(
   applyMiddleware(thunk)
 ))
