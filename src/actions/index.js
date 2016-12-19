@@ -5,21 +5,6 @@ import actionType from './types.js'
 
 const ubus = new Ubus(config.rpcOptions)
 
-// export function saveSharingSettings (settings) {
-//   return async () => {
-//     // placeholder function
-//     console.log('saveSharingSettings', settings)
-//     return null
-//   }
-// }
-
-// export function registerNode () {
-//   return async (dispatch, getState) => (
-//     // placeholder function
-//     null
-//   )
-// }
-
 export function login (password) {
   return async (dispatch, getState) => {
     const {
@@ -43,15 +28,15 @@ export function login (password) {
 
 export function loadSession () {
   return async (dispatch, getState) => {
-    console.log('frooples')
     try {
-      await fetchUciConfigs()
-      return dispatch({
+      await dispatch(fetchUciConfigs())
+      dispatch({
         type: actionType['logged in']
       })
     } catch (e) {
       console.error(`saved session error: ${e}. clearing session.`)
-      return dispatch(logout())
+      dispatch({ type: actionType['initialized'] })
+      localStorage.setItem('sessionID', null)
     }
   }
 }

@@ -130,11 +130,11 @@ function mapStateToProps (state) {
 export function commaAndString (items) {
   return items.map((item, i, arr) => {
     if (i === (arr.length - 2)) {
-      return <span><b>{item}</b>{(arr.length < 3 ? ' and ' : ', and ')}</span>
+      return <span key={i}><b>{item}</b>{(arr.length < 3 ? ' and ' : ', and ')}</span>
     } else if (i === (arr.length - 1)) {
-      return <b>{item}</b>
+      return <b key={i}>{item}</b>
     } else {
-      return <span><b>{item}</b>, </span>
+      return <span key={i}><b>{item}</b>, </span>
     }
   })
 }

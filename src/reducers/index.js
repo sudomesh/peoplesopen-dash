@@ -12,7 +12,8 @@ const initialState = {
   isSharing: false,
   sessionID: '00000000000000000000000000000000',
   uciConfigs: null,
-  isLoggedIn: false
+  isLoggedIn: false,
+  isInitialized: false
 }
 
 export default function rootReducer (state = initialState, action: Action) {
@@ -21,7 +22,14 @@ export default function rootReducer (state = initialState, action: Action) {
     case actionTypes['logged in']:
       return {
         ...state,
-        isLoggedIn: true 
+        isLoggedIn: true,
+        isInitialized: true 
+      }
+
+    case actionTypes['initialized']:
+      return {
+        ...state,
+        isInitialized: true 
       }
 
     case actionTypes['got uci configs']:

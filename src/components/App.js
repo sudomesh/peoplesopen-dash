@@ -3,11 +3,15 @@ import { connect } from 'react-redux'
 import LoginScreen from './LoginScreen.js'
 import Frontpage from './Frontpage.js'
 
-function App ({ isLoggedIn }) {
-  if (isLoggedIn) {
-    return <Frontpage/>
+function App ({ isLoggedIn, isInitialized }) {
+  if (isInitialized) {
+    if (isLoggedIn) {
+      return <Frontpage/>
+    } else {
+      return <LoginScreen/>
+    }
   } else {
-    return <LoginScreen/>
+    return <div/>
   }
 }
 
@@ -15,6 +19,7 @@ export default connect(mapStateToProps)(App)
 
 function mapStateToProps (state) {
   return {
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.isLoggedIn,
+    isInitialized: state.isInitialized
   }
 }
