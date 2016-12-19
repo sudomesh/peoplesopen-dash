@@ -21,23 +21,26 @@ export function login (password) {
     await dispatch(fetchUciConfigs())
 
     return dispatch({
-      type: actionType['logged in']
+      type: actionType('logged in')
     })
   }
 }
 
 export function loadSession () {
   return async (dispatch, getState) => {
-    try {
-      await dispatch(fetchUciConfigs())
-      dispatch({
-        type: actionType['logged in']
-      })
-    } catch (e) {
-      console.error(`saved session error: ${e}. clearing session.`)
-      dispatch({ type: actionType['initialized'] })
-      localStorage.setItem('sessionID', null)
+    if (localStorage.getItem('sessionID')) {
+      try {
+        await dispatch(fetchUciConfigs())
+        dispatch({
+          type: actionType('logged in')
+        })
+      } catch (e) {
+        console.error(`saved session error: ${e}. clearing session.`)
+        localStorage.setItem('sessionID', null)
+      }
     }
+
+    dispatch({ type: actionType('initialized') })
   }
 }
 
@@ -50,7 +53,7 @@ export function logout (dispatch) {
     localStorage.setItem('sessionID', null)
 
     return dispatch({
-      type: actionType['logged out']
+      type: actionType('logged out')
     })
   }
 }
@@ -65,7 +68,7 @@ export function fetchUciConfigs () {
       'wireless',
       'tunneldigger'
     ]
-    const configs = {}
+    const configs = {} 
 
     await Promise.all(configNames.map(async config => {
       const { values } = await dispatch(callUbus('uci', 'get', { config }))
@@ -73,7 +76,7 @@ export function fetchUciConfigs () {
     }))
 
     return dispatch({
-      type: actionType['got uci configs'],
+      type: actionType('got uci configs'),
       payload: configs
     })
   }

@@ -1,4 +1,4 @@
-import actionTypes from '../actions/types.js'
+import actionType from '../actions/types.js'
 
 
 const initialState = {
@@ -19,28 +19,25 @@ const initialState = {
 export default function rootReducer (state = initialState, action: Action) {
   const { type, payload } = action
   switch (type) {
-    case actionTypes['logged in']:
+    case actionType('logged in'):
       return {
         ...state,
         isLoggedIn: true,
         isInitialized: true 
       }
 
-    case actionTypes['initialized']:
+    case actionType('initialized'):
       return {
         ...state,
         isInitialized: true 
       }
 
-    case actionTypes['got uci configs']:
+    case actionType('got uci configs'):
       return {
         ...state,
         uciConfigs: cleanUciConfigs(payload)
       }
 
-    case actionTypes['save sharing settings']:
-      console.log('save sharing settings')
-      return state
     default:
       return state
   }

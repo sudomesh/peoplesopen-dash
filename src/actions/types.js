@@ -11,4 +11,9 @@ for (let type of typesArray) {
   types[type] = type
 }
 
-export default types
+export default function (type) {
+  if (!types[type]) {
+    throw new Error(`unsupported action type: ${type}`)
+  }
+  return type
+}
