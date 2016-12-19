@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
 import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
   Container,
-  Row,
-  Form,
-  FormGroup,
-  Label,
-  Input
+  Row
 } from 'reactstrap';
 import routerImg from '../images/myNet-with-sticker.png'
 import { saveSharingSettings } from '../actions/index.js'
 import { connect } from 'react-redux'
 import LoginScreen from './LoginScreen.js'
+import SharingSettingsModal from './SharingSettingsModal.js'
+
+const propType = React.PropTypes
 
 const styles = {
   item: {
@@ -102,53 +96,33 @@ class Frontpage extends Component {
   }
 }
 
-class SharingSettingsModal extends Component {
-  bindState = (property) => {
-    return (event) => {
-      this.setState({ [property]: event.target.value })
-    }
-  }
+// neighbors: [ 
+//   { name: 'mesh26' },
+//   { name: 'mesh11' },
+//   { name: 'sally_b' }
+// ],
+// internetNeighbor: 'mesh26',
+// totalTransfered: '10gb',
+// sharing: false
 
-  render () {
-    const {
-      props: {
-        modalIsOpen,
-        toggleModal,
-        onSubmit
-      },
-      state,
-      bindState
-    } = this
-
-    return <Modal isOpen={ modalIsOpen } toggle={ toggleModal }>
-      <ModalHeader toggle={ toggleModal }>Bandwidth Sharing Settings</ModalHeader>
-      <ModalBody>
-        <Form>
-          <FormGroup>
-            <Label for="ssid">Wifi network</Label>
-            <Input id="ssid" onChange={ bindState('ssid') } />
-          </FormGroup>
-          <FormGroup>
-            <Label for="wifi-password">Wifi password</Label>
-            <Input type="password" id="wifi-password" onChange={ bindState('wifi-password') } />
-          </FormGroup>
-        </Form>
-      </ModalBody>
-      <ModalFooter>
-        <Button color="primary" onClick={() => {
-          toggleModal()
-          onSubmit(state)
-        }}>Save</Button>{' '}
-        <Button color="secondary" onClick={ toggleModal }>Cancel</Button>
-      </ModalFooter>
-    </Modal>
-  }
+Frontpage.propTypes = {
+  neighbors: propType.arrayOf(propType.shape({
+    name: propType.string.isRequired
+  })).isRequired,
+  internetNeighbor: propType.string.isRequired,
+  totalTransfered: propType.string.isRequired,
+  isSharing: propType.bool.isRequired,
+  isLoggedIn: propType.bool.isRequired,
 }
 
 export default connect(mapStateToProps)(Frontpage)
 
 function mapStateToProps (state) {
   return {
+    neighbors: state.neighbors,
+    internetNeighbor: state.internetNeighbor,
+    totalTransfered: state.totalTransfered,
+    isSharing: state.isSharing,
     isLoggedIn: state.isLoggedIn
   }
 }

@@ -1,4 +1,3 @@
-import p from 'es6-promisify'
 import rpc from 'node-json-rpc'
 import check from 'check-types'
 
@@ -11,18 +10,33 @@ export default class Ubus {
     // The string of zeroes is a null session which can only call login
     sessionID = sessionID || '00000000000000000000000000000000'
     
-    const response = await p(this.rpcClient.call)({
-      method: 'call', 
-      jsonrpc: '2.0',
-      id: 1, 
-      params: [ sessionID, obj, method, args ]
+    const params = [ sessionID, obj, method, args ]
+
+    console.log('ubus request: ', params)
+    
+    const response = await fetch('http://172.30.0.1/ubus', {
+      method: 'POST',
+      body: JSON.stringify({
+        method: 'call', 
+        jsonrpc: '2.0',
+        id: 1, 
+        params
+      })
     })
 
-    if (response.error) {
-      throw new Error(`ubus error: ${response.error.message}`)
+    if (!response.ok) {
+      throw new Error(`ubus error: ${response.status} ${response.statusText}`)
     }
 
-    const result = response.result
+    const json =  await response.json()
+
+    console.log('ubus response: ', json)
+
+    if (json.error) {
+      throw new Error(`ubus error: ${json.error.message}`)
+    }
+
+    const result = json.result
 
     check.assert.array(result, `ubus error: wrong result format: ${result}`)
 

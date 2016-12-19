@@ -31,20 +31,24 @@ export function login (password) {
       'login failed: ubus server did not return session id'
     )
 
+    localStorage.setItem('sessionID', ubus_rpc_session)
+
     await dispatch(fetchUciConfigs())
 
-    localStorage.setItem('sessionID', ubus_rpc_session)
-    const action: Action = {
-      type: actionType('logged in')
-    }
-    return dispatch(action)
+    return dispatch({
+      type: actionType['logged in']
+    })
   }
 }
 
 export function loadSession () {
   return async (dispatch, getState) => {
+    console.log('frooples')
     try {
       await fetchUciConfigs()
+      return dispatch({
+        type: actionType['logged in']
+      })
     } catch (e) {
       console.error(`saved session error: ${e}. clearing session.`)
       return dispatch(logout())
@@ -55,11 +59,13 @@ export function loadSession () {
 export function logout (dispatch) {
   return async (dispatch, getState) => {
     const sessionID = localStorage.getItem('sessionID')
-    await dispatch(callUbus('session', 'destroy', { sessionID }))
+    if (sessionID) {
+      await dispatch(callUbus('session', 'destroy', { sessionID }))
+    }
     localStorage.setItem('sessionID', null)
 
     return dispatch({
-      type: actionType('logged out')
+      type: actionType['logged out']
     })
   }
 }
@@ -70,19 +76,20 @@ export function changePassword (credentials) {
 
 export function fetchUciConfigs () {
   return async (dispatch, getState) => {
-    const { configNames } = await dispatch(callUbus('uci', 'configs', {}))
+    const configNames = [
+      'wireless',
+      'tunneldigger'
+    ]
+    const configs = {}
 
-    check.assert.array(configNames, 'fetchUciConfigs failed: configNames must be array')
-
-    const uciConfigs = {}
-    await Promise.all(configNames.map(async configName => {
-      const { values } = await dispatch(callUbus('uci', 'get', { configName }))
-      uciConfigs[configName] = values
+    await Promise.all(configNames.map(async config => {
+      const { values } = await dispatch(callUbus('uci', 'get', { config }))
+      configs[config] = values
     }))
 
     return dispatch({
-      type: actionType('got uci configs'),
-      payload: uciConfigs
+      type: actionType['got uci configs'],
+      payload: configs
     })
   }
 }

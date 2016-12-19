@@ -1,6 +1,7 @@
 let typesArray = [
   'logged in',
-  'logged out'
+  'logged out',
+  'got uci configs'
 ]
 
 let types = {}
@@ -9,8 +10,4 @@ for (let type of typesArray) {
   types[type] = type
 }
 
-export default function (type) {
-  if (!types[type]) {
-    throw new Error('unsupported action type')
-  }
-}
+export default types
