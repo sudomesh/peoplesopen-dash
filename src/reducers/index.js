@@ -38,6 +38,13 @@ export default function rootReducer (state = initialState, action: Action) {
         uciConfigs: cleanUciConfigs(payload)
       }
 
+    case actionType('hashchange'):
+      console.log('hash', action.payload)
+      return {
+        hash: action.payload,
+        ...state
+      }
+
     default:
       return state
   }

@@ -4,15 +4,9 @@ import LoginScreen from './LoginScreen.js'
 import Frontpage from './Frontpage.js'
 
 function App ({ isLoggedIn, isInitialized }) {
-  if (isInitialized) {
-    if (isLoggedIn) {
-      return <Frontpage/>
-    } else {
-      return <LoginScreen/>
-    }
-  } else {
-    return <div/>
-  }
+  return <div>
+    { isInitialized && (isLoggedIn ? <Frontpage/> : <LoginScreen/>) }
+  </div>
 }
 
 export default connect(mapStateToProps)(App)

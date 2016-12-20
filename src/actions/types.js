@@ -2,7 +2,8 @@ let typesArray = [
   'logged in',
   'logged out',
   'got uci configs',
-  'initialized'
+  'initialized',
+  'hashchange'
 ]
 
 let types = {}

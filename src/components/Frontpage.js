@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import {
   Container,
-  Row
+  Row,
+  Button,
+  FormGroup,
+  Input,
+  Label,
+  Col
 } from 'reactstrap';
 import routerImg from '../images/myNet-with-sticker.png'
 import { saveSharingSettings } from '../actions/index.js'
 import { connect } from 'react-redux'
 import LoginScreen from './LoginScreen.js'
 import SharingSettingsModal from './SharingSettingsModal.js'
+import actionType from '../actions/types.js'
 
 const propType = React.PropTypes
 
@@ -55,33 +61,35 @@ class Frontpage extends Component {
     } = this
 
     if (props.isLoggedIn) {
-      return <Container>
-        <Row>
+      return <Container><Row><Col>
+        <div>
           <div style={ styles.center }>
             <img src={ routerImg } alt="router"/>
           </div>
-        </Row>
+        </div>
 
-        <Row style={ styles.item }>This is the dashboard for your new PeoplesOpen.net router. If there are enough routers nearby, they form a "mesh network" which can provide internet access.</Row>
+        <p style={ styles.item }>This is the dashboard for your new PeoplesOpen.net router. If there are enough routers nearby, they form a "mesh network" which can provide internet access.</p>
 
-        <Row><h3>Status:</h3></Row>
+        <h3>Status:</h3>
 
-        <Row style={ styles.item }>Right now, you're connected to three neighbor routers: { commaAndString(props.neighbors.map(neighbor => neighbor.name)) }.</Row>
+        <p style={ styles.item }>Right now, you're connected to three neighbor routers: { commaAndString(props.neighbors.map(neighbor => neighbor.name)) }.</p>
 
-        <Row style={ styles.item }>You're connected to the internet through <b>{ props.internetNeighbor }</b>.</Row>
+        <p style={ styles.item }>You're connected to the internet through <b>{ props.internetNeighbor }</b>.</p>
 
-        <Row style={ styles.item }>So far, you've transferred <b>{ props.totalTransfered }</b> of data between neighbor routers.</Row>
+        <p style={ styles.item }>So far, you've transferred <b>{ props.totalTransfered }</b> of data between neighbor routers.</p>
+
+        <h3>Sharing:</h3>
 
         { props.isSharing ?
-          <Row>
+          <div>
             You are currently sharing your home internet connection to help other nodes on the mesh network get access to the internet.
 
             You have shared <b>{ props.totalShared }</b> this month.
 
             Bandwidth sharing is limited to <b>{ props.sharingLimit }</b>. If you connect your devices to this wifi network (<b>{ props.privateSSID }</b>), they will automatically receive priority over other traffic, and you can turn this limit off.
-          </Row>
+          </div>
         :
-          <Row style={ styles.item }>Your home internet connection is currently <b>not</b> being shared on the mesh network. If you'd like to securely donate a small portion of your own bandwidth to this project, <a tabIndex={0} onClick={ this.toggleModal }>click here to start sharing</a>.</Row>
+          <div style={ styles.item }>Your home internet connection is currently <b>not</b> being shared on the mesh network. If you'd like to securely donate a small portion of your own bandwidth to this project, <a tabIndex={0} onClick={ this.toggleModal }>click here to start sharing</a>.</div>
         }
 
         <SharingSettingsModal
@@ -89,21 +97,57 @@ class Frontpage extends Component {
           toggleModal={ toggleModal } 
           onSubmit={ sharingSettings => props.dispatch(saveSharingSettings(sharingSettings)) }/>
 
-      </Container>
+        <div><h3>Passwords:</h3></div>
+
+        <ConfigForm/>
+
+      </Col></Row></Container>
     } else {
       return <LoginScreen/>
     }
   }
 }
 
-// neighbors: [ 
-//   { name: 'mesh26' },
-//   { name: 'mesh11' },
-//   { name: 'sally_b' }
-// ],
-// internetNeighbor: 'mesh26',
-// totalTransfered: '10gb',
-// sharing: false
+class ConfigForm extends Component {
+  save = (config, section, toChange) => {
+    return (value) => {
+      this.props.dispatch({
+        type: actionType('config changed'),
+        payload: {
+          config,
+          section,
+          values: {
+            [toChange]: value
+          }
+        }
+      })
+    }
+  }
+
+  render () {
+    return <div>
+      <ConfigItem
+        label="2.4ghz private network SSID"
+        slug="priv2ssid"
+        save={ this.save('') }
+      />
+    </div>
+  }
+}
+
+function ConfigItem ({
+  label,
+  slug,
+  bindState
+}) {
+  return <FormGroup>
+    <Label for={ slug }>{ label }</Label>
+    <div style={{ display: 'flex' }}>
+      <Input type="text" name={ slug } id={ slug } />
+      <Button style={{ marginLeft: 20 }}>Save</Button>
+    </div>
+  </FormGroup>
+}
 
 Frontpage.propTypes = {
   neighbors: propType.arrayOf(propType.shape({

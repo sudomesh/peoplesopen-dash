@@ -7,8 +7,7 @@ import rootReducer from './reducers'
 import thunk from 'redux-thunk'
 import App from './components/App.js'
 import { loadSession } from './actions/index.js'
-console.log(process.env.NODE_ENV
-)
+import actionType from './actions/types.js'
 
 const composeEnhancers = process.env.NODE_ENV !== 'production' ?
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ 
@@ -19,6 +18,16 @@ const store = createStore(rootReducer, composeEnhancers(
 ))
 
 store.dispatch(loadSession())
+
+function onHashChange () {
+  store.dispatch({
+    type: actionType('hashchange'),
+    payload: window.location.hash.substr(1)
+  })
+}
+
+onHashChange()
+window.addEventListener('hashchange', onHashChange, false)
 
 ReactDOM.render(
   <Provider store={store}>
