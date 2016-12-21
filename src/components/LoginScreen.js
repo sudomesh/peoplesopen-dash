@@ -39,7 +39,6 @@ class LoginScreen extends Component {
           </FormGroup>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={() => props.dispatch(logout())}>Logout</Button>
           <Button color="primary" type="submit">Login</Button>
         </ModalFooter>
       </form>
