@@ -1,16 +1,9 @@
 import { changeWirelessConfig } from '../actions/index.js'
-import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {
-  Button,
-  Form,
-  FormGroup,
-  Input,
-  Label
-} from 'reactstrap'
+import React from 'react'
+import ConfigItem from './ConfigItem.js'
 
-
-export default function ConfigForm ({
+function WirelessConfigForm ({
   save,
   configs
 }) {
@@ -44,4 +37,20 @@ export default function ConfigForm ({
       save={ save }
     />
   </div>
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WirelessConfigForm)
+
+function mapStateToProps (state) {
+  return {
+    configs: state.uciConfigs.wireless.interfaces
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    save ({ name, toChange, value }) {
+      dispatch(changeWirelessConfig(name, toChange, value))
+    }
+  }
 }

@@ -11,7 +11,10 @@ const initialState = {
   totalTransfered: '10gb',
   isSharing: false,
   sessionID: '00000000000000000000000000000000',
-  uciConfigs: null,
+  uciConfigs: {
+    wireless: null,
+    tunneldigger: null
+  },
   isLoggedIn: false,
   isInitialized: false
 }
@@ -69,8 +72,6 @@ function cleanUciConfigs (payload) {
     interfaces: {},
     devices: {}
   })
-
-  tunneldigger = tunneldigger.main
 
   return {
     wireless,

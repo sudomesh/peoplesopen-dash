@@ -82,14 +82,37 @@ export function fetchUciConfigs () {
   }
 }
 
-export function changeSetting (setting) {
-  return callUbus('uci', 'set', {
-    config: setting.section,
-    section: setting.key,
-    values: {
-      [setting.toChange]: setting.value
-    }
-  })
+export function changeWirelessConfig (ifname, toChange, value) {
+  return async (dispatch, getState) => {
+    const { uciConfigs: { wireless: { interfaces } } } = getState()
+    await dispatch(callUbus('uci', 'set', {
+      config: 'wireless',
+      section: interfaces[ifname]['.name'],
+      values: {
+        [toChange]: value
+      }
+    }))
+
+    return dispatch(callUbus('uci', 'commit', {
+      config: 'wireless'
+    }))
+  }
+}
+
+export function changeTunneldiggerConfig (toChange, value) {
+  return async (dispatch, getState) => {
+    await dispatch(callUbus('uci', 'set', {
+      config: 'tunneldigger',
+      section: 'main',
+      values: {
+        [toChange]: value
+      }
+    }))
+
+    return dispatch(callUbus('uci', 'commit', {
+      config: 'tunneldigger'
+    }))
+  }
 }
 
 export function callUbus (object, method, args) {
