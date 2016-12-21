@@ -12,4 +12,12 @@ To write code for this app, you need a PeoplesOpen.net home node. This is becaus
 
 It's probably easiest to ask someone for one of the pre-flashed nodes that we keep on hand, but in case you want to flash your own, check the [wiki](https://sudoroom.org/wiki/Mesh/WalkThrough). If the node is correctly flashed, you should be able to connect to the node's private wifi or ethernet network and access `172.30.0.1`.
 
-Now, run `npm start` from this directory, and open Chrome with the [`--disable-web-security` and `--user-data-dir`](http://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome)
+Now, run `npm start` from this directory, and open Chrome with the [--disable-web-security and --user-data-dir](http://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome) flags. You should be able to log into the control panel (you'll need the admin password of course) at localhost:3000 and see it live-update as you edit the code. You should also be able to use the [Redux devtools](http://zalmoxisus.github.io/redux-devtools-extension/) to inspect and update the in-memory application state.
+
+## Application architecture
+
+This is meant to be a pretty typical React-Redux application. You should be able to read about all the concepts used in the documentation for these libraries:
+
+- [Redux](http://redux.js.org)
+- [React](https://facebook.github.io/react/)
+- [Redux-thunk](https://github.com/gaearon/redux-thunk)
