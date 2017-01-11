@@ -8,12 +8,15 @@ import {
 } from 'reactstrap'
 
 export default class ConfigItem extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { value: props.value }
+  }
   render () {
     const {
       label,
       name,
       toChange,
-      value,
       save
     } = this.props
 
@@ -30,8 +33,10 @@ export default class ConfigItem extends Component {
             type="text"
             name={ slug }
             id={ slug }
-            value={ value }
-            onChange={ (event) => this.setState({ value: event.target.value }) }
+            value={ this.state.value }
+            onChange={ (event) => {
+              this.setState({ value: event.target.value }) 
+            }}
             style={{ maxWidth: 400 }}
           />
           <Button type="submit" style={{ marginLeft: 15 }}>Save</Button>

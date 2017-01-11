@@ -9,11 +9,7 @@ import App from './components/App.js'
 import { loadSession } from './actions/index.js'
 import actionType from './actions/types.js'
 
-const composeEnhancers = process.env.NODE_ENV !== 'production' ?
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ 
-  : compose
-
-const store = createStore(rootReducer, composeEnhancers(
+const store = createStore(rootReducer, compose(
   applyMiddleware(thunk)
 ))
 
