@@ -8,6 +8,7 @@ import thunk from 'redux-thunk'
 import App from './components/App.js'
 import { loadSession } from './actions/index.js'
 import actionType from './actions/types.js'
+import infoParse from './libs/info-parse.js'
 
 const store = createStore(rootReducer, compose(
   applyMiddleware(thunk)
@@ -21,6 +22,8 @@ function onHashChange () {
     payload: window.location.hash.substr(1)
   })
 }
+
+console.log(infoParse())
 
 onHashChange()
 window.addEventListener('hashchange', onHashChange, false)
