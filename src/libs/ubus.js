@@ -1,9 +1,8 @@
-import rpc from 'node-json-rpc'
 import check from 'check-types'
 
 export default class Ubus {
-  constructor (rpcOptions) {
-    this.rpcClient = new rpc.Client(rpcOptions)
+  constructor (ubusUrl) {
+    this.ubusUrl = ubusUrl
   }
 
   async call (sessionID, obj, method, args) {
@@ -14,7 +13,7 @@ export default class Ubus {
 
     console.log('ubus request: ', params)
     
-    const response = await fetch('http://172.30.0.1/ubus', {
+    const response = await fetch(this.ubusUrl, {
       method: 'POST',
       body: JSON.stringify({
         method: 'call', 
