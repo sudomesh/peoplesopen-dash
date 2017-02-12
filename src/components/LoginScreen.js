@@ -9,7 +9,7 @@ import {
   Label,
   Input
 } from 'reactstrap'
-import { login, logout } from '../actions/index.js'
+import { login } from '../actions/index.js'
 import { connect } from 'react-redux'
 
 class LoginScreen extends Component {
@@ -26,7 +26,7 @@ class LoginScreen extends Component {
       bindState
     } = this
 
-    return <Modal toggle={ () => {} } isOpen={ true }>
+    return <Modal toggle={ () => {} } isOpen={ true } show={ true }>
       <ModalHeader>Log in to PeoplesOpen.Net dashboard</ModalHeader>
       <form onSubmit={e => {
         e.preventDefault()

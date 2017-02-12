@@ -3,7 +3,7 @@ import check from 'check-types'
 import config from '../config.js'
 import actionType from './types.js'
 
-const ubus = new Ubus(config.rpcOptions)
+const ubus = new Ubus(config.ubusUrl)
 
 export function login (password) {
   return async (dispatch, getState) => {
