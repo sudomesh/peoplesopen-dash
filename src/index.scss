@@ -17,3 +17,10 @@ $container-max-widths: (
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
+// Don't know why this doesn't work right
+.modal.fade {
+  opacity: 100
+}
+.modal.fade .modal-dialog {
+  transform: none
+}
