@@ -22,6 +22,7 @@ function WirelessConfigForm ({
       value={ configs["priv2"]["key"] }
       save={ save }
     />
+
     <ConfigItem
       label="Private network SSID (name) - 5ghz"
       name="priv5"
@@ -36,6 +37,23 @@ function WirelessConfigForm ({
       value={ configs["priv5"]["key"] }
       save={ save }
     />
+
+    <ConfigItem
+      label="Public network SSID (name) - 2.4ghz"
+      name="open2"
+      toChange="ssid"
+      value={ configs["open2"]["ssid"] }
+      save={ save }
+    />
+
+    <ConfigItem
+      label="Public network SSID (name) - 5ghz"
+      name="open5"
+      toChange="ssid"
+      value={ configs["open5"]["ssid"] }
+      save={ save }
+    />
+
   </div>
 }
 
