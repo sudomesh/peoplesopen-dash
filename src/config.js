@@ -1,9 +1,4 @@
 export default {
-  rpcOptions: {
-    port: 80,
-    host: '172.30.0.1',
-    path: '/ubus',
-    strict: false
-  },
+  ubusUrl: 'http://172.30.0.1/ubus',
   username: 'admin'
 }
