@@ -19,7 +19,7 @@ const initialState = {
   isInitialized: false
 }
 
-export default function rootReducer (state = initialState, action: Action) {
+export default function rootReducer (state = initialState, action) {
   const { type, payload } = action
   switch (type) {
     case actionType('logged in'):
