@@ -44,8 +44,8 @@ export default function rootReducer (state = initialState, action) {
     case actionType('hashchange'):
       console.log('hash', action.payload)
       return {
+        ...state,
         hash: action.payload,
-        ...state
       }
 
     default:

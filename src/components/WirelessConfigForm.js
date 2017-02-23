@@ -61,7 +61,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(WirelessConfigForm)
 
 function mapStateToProps (state) {
   return {
-    configs: state.uciConfigs.wireless.interfaces
+    configs: state.uciConfigs.wireless && state.uciConfigs.wireless.interfaces
   }
 }
 
