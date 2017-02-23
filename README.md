@@ -1,5 +1,7 @@
 # PeoplesOpen.net dashboard
 
+![](homeScreen.png)
+
 This is the dashboard that is shown to users of PeoplesOpen.net to allow them to learn about and configure their home nodes. It has 2 main goals: allow less-advanced users to see what their node has been doing and to allow more-advanced users to configure their node more easily.
 
 For the less-advanced users, the front page has some statistics and information about their node, such as what neighbors it is connected to, how much it has shared, etc. This information is designed to present a friendly face and make the idea of mesh networks fun and approachable. Another goal of this page is to convert people from just hosting a home node to actually sharing their bandwidth.
