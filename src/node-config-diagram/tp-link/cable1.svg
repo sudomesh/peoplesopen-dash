@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1000px" height="181px" viewBox="0 0 1000 181" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Cable1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M544.000395,35 L520.999605,35 L524,35 L524,26 L515,26 L515,29.0003947 L515,2.99921059 C515,1.34279232 516.350596,0 517.999211,0 L547.000789,0 C548.657208,0 550,1.35059566 550,2.99921059 L550,29.0003947 L550,26 L541,26 L541,35 L544.000395,35 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="35" height="35" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="router" transform="translate(0.000000, -234.000000)">
+            <g id="Cable1">
+                <g transform="translate(0.000000, 234.000000)">
+                    <use id="Combined-Shape" stroke="#000000" mask="url(#mask-2)" stroke-width="2" fill="#C8C8C8" xlink:href="#path-1"></use>
+                    <path d="M531.4829,15.6634472 L300.998969,165.823676" id="Line" stroke="#000000" stroke-width="17" stroke-linecap="round"></path>
+                    <polyline id="Line" stroke="#D4D4D4" stroke-width="15" stroke-linecap="round" points="531.4829 15.6634472 490.577571 42.3132596 300.998969 165.823676"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

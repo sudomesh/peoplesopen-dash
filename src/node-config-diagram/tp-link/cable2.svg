@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1000px" height="181px" viewBox="0 0 1000 181" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Cable2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M583.000395,35 L559.999605,35 L563,35 L563,26 L554,26 L554,29.0003947 L554,2.99921059 C554,1.34279232 555.350596,0 556.999211,0 L586.000789,0 C587.657208,0 589,1.35059566 589,2.99921059 L589,29.0003947 L589,26 L580,26 L580,35 L583.000395,35 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="35" height="35" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="router" transform="translate(0.000000, -234.000000)">
+            <g id="Cable2">
+                <g transform="translate(0.000000, 234.000000)">
+                    <use id="Combined-Shape" stroke="#000000" mask="url(#mask-2)" stroke-width="2" fill="#C8C8C8" xlink:href="#path-1"></use>
+                    <path d="M571.839521,16 L500.310025,166.160229" id="Line" stroke="#000000" stroke-width="17" stroke-linecap="round"></path>
+                    <path d="M571.839521,16 L500.310025,166.160229" id="Line" stroke="#D4D4D4" stroke-width="15" stroke-linecap="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
