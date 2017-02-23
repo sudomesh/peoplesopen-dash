@@ -21,3 +21,11 @@ This is meant to be a pretty typical React-Redux application. You should be able
 - [Redux](http://redux.js.org)
 - [React](https://facebook.github.io/react/)
 - [Redux-thunk](https://github.com/gaearon/redux-thunk)
+
+## Screenshots
+
+![](homeScreen.png)
+----
+![](connectionsScreen.png)
+----
+![](wifiSettingsScreen.png)
