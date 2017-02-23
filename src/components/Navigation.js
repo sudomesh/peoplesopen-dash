@@ -24,13 +24,13 @@ export default class Navigation extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="#home">Home</NavLink>
+                <NavLink active={this.props.hash === 'home'} href="#home">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#wifi">Wifi Settings</NavLink>
+                <NavLink active={this.props.hash === 'wifi'} href="#wifi">Wifi Settings</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#connections">Connections</NavLink>
+                <NavLink active={this.props.hash === 'connections'} href="#connections">Connections</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

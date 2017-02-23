@@ -8,8 +8,6 @@ import cable2 from './tp-link/cable2.svg'
 import cable3 from './tp-link/cable3.svg'
 import cable4 from './tp-link/cable4.svg'
 
-import { labelText } from './styles.js'
-
 let cables = {
     0: cable0,
     1: cable1,

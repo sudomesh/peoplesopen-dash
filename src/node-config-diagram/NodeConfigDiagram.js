@@ -5,7 +5,7 @@ import { DeviceBox } from './DeviceBox.js'
 
 import { labelText } from './styles.js'
 
-function App({ ports, radios }) {
+function NodeConfigDiagram ({ ports, radios }) {
   return (
     <div style={{
       width: 1000,
@@ -102,4 +102,4 @@ function App({ ports, radios }) {
   )
 }
 
-export default App
+export default NodeConfigDiagram

@@ -1,9 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
-
-let example = {
+export default {
   ports: {
     0: {
       name: "WAN port",
@@ -79,8 +74,3 @@ let example = {
     }
   }
 }
-
-ReactDOM.render(
-  <App { ...example }/>,
-  document.getElementById('root')
-);

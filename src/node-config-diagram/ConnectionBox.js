@@ -39,15 +39,6 @@ let icons = {
     },
 }
 
-let files = {
-    internetTunnel,
-    nanoBridge,
-    nanoBeam,
-    nanoStation,
-    publicEthernet,
-    privateEthernet,
-}
-
 export function ConnectionBox ({ deviceIcons, connectionIcon, name }) {
   return (
       <div style={{ position: "relative" }}>

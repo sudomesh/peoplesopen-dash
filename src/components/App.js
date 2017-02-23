@@ -8,7 +8,7 @@ import Navigation from './Navigation.js'
 
 function App ({ isLoggedIn, isInitialized, hash }) {
   return <div>
-    <Navigation/>
+    <Navigation hash={hash}/>
     { isInitialized && (isLoggedIn ? <Page hash={hash}/> : <LoginScreen/>) }
   </div>
 }
