@@ -11,21 +11,9 @@ import example from '../node-config-diagram/example.js'
 
 const propType = React.PropTypes
 
-const styles = {
-  item: {
-    marginBottom: 20
-  },
-  center: {
-    textAlign: 'center'
-  },
-  section: {
-    marginBottom: 50
-  }
-}
-
 class Frontpage extends Component {
   render () {
-    return <div style={{ display: 'flex' }}>
+    return <div style={{ marginTop: 50, display: 'flex' }}>
       <div style={{ margin: 'auto' }}>
         <NodeConfigDiagram { ...example }/>
       </div>

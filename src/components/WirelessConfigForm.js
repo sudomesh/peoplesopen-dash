@@ -8,6 +8,8 @@ function WirelessConfigForm ({
   configs
 }) {
   return <div>
+    These are the settings for your private 2.4ghz and 5ghz networks.
+    <hr/>
     <ConfigItem
       label="Private network SSID (name) - 2.4ghz"
       name="priv2"
@@ -38,7 +40,7 @@ function WirelessConfigForm ({
       save={ save }
     />
 
-    <ConfigItem
+    {/*<ConfigItem
       label="Public network SSID (name) - 2.4ghz"
       name="open2"
       toChange="ssid"
@@ -52,7 +54,7 @@ function WirelessConfigForm ({
       toChange="ssid"
       value={ configs["open5"]["ssid"] }
       save={ save }
-    />
+    />*/}
 
   </div>
 }

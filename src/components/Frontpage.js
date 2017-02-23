@@ -63,13 +63,13 @@ class Frontpage extends Component {
       return <Container><Row><Col>
         <div>
           <div style={ styles.center }>
-            <img src={ routerImg } alt="router"/>
+            <img style={{ maxWidth: '60%', margin: 'auto' }}src={ routerImg } alt="router"/>
           </div>
         </div>
 
-        <p style={ styles.item }>This is the dashboard for your new PeoplesOpen.net router. If there are enough routers nearby, they form a "mesh network" which can provide internet access.</p>
+        <p style={ styles.item }>This is the dashboard for your PeoplesOpen.net router. If there are enough routers nearby, they form a "mesh network" which can provide internet access.</p>
 
-        <div style={styles.section}>
+        {/*<div style={styles.section}>
           <h3>Status:</h3>
 
           <p style={ styles.item }>Right now, you're connected to three neighbor routers: { commaAndString(props.neighbors.map(neighbor => neighbor.name)) }.</p>
@@ -77,7 +77,7 @@ class Frontpage extends Component {
           <p style={ styles.item }>You're connected to the internet through <b>{ props.internetNeighbor }</b>.</p>
 
           <p style={ styles.item }>So far, you've transferred <b>{ props.totalTransfered }</b> of data between neighbor routers.</p>
-        </div>
+        </div>*/}
 
         <div style={styles.section}>
           <h3>Sharing:</h3>
@@ -86,7 +86,7 @@ class Frontpage extends Component {
             <div>
               <p style={ styles.item }>You are currently sharing your home internet connection to help other nodes on the mesh network get access to the internet.</p>
 
-              <p style={ styles.item }>You have shared <b>{ props.totalShared }</b> this month.</p>
+              {/*<p style={ styles.item }>You have shared <b>{ props.totalShared }</b> this month.</p>*/}
 
               <div style={ styles.item }>
                 <SharingConfigForm/>
