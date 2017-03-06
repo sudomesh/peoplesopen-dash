@@ -35,9 +35,8 @@ export default {
       connectionIcon: "publicEthernet",
       deviceIcons: [
         {
-          type: "client",
-          network: "Public",
-          number: 2
+          type: "unknownDevice",
+          number: 1
         }
       ]
     },

@@ -14,8 +14,7 @@ let icons = {
         title: "Mesh Exit Server"
     },
     unknownDevice: {
-        file: unknownDevice,
-        title: "Unknown Device"
+        file: client
     },
 }
 

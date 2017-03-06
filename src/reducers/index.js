@@ -41,6 +41,12 @@ export default function rootReducer (state = initialState, action) {
         uciConfigs: cleanUciConfigs(payload)
       }
 
+    case actionType('got router info'):
+      return {
+        ...state,
+        routerInfo: payload
+      }
+
     case actionType('hashchange'):
       console.log('hash', action.payload)
       return {

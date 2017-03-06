@@ -1,0 +1,64 @@
+iw dev open2 station dump
+
+Station f4:0f:24:03:40:87 (on open2)
+	inactive time:	10 ms
+	rx bytes:	40411
+	rx packets:	686
+	tx bytes:	13710
+	tx packets:	123
+	tx retries:	11
+	tx failed:	4
+	signal:  	-38 [-39, -42] dBm
+	signal avg:	-36 [-38, -41] dBm
+	tx bitrate:	130.0 MBit/s MCS 14 short GI
+	rx bitrate:	24.0 MBit/s
+	expected throughput:	45.43Mbps
+	authorized:	yes
+	authenticated:	yes
+	preamble:	short
+	WMM/WME:	yes
+	MFP:		no
+	TDLS peer:	no
+	connected time:	275 seconds
+
+Station 84:3a:4b:cb:77:30 (on open2)
+	inactive time:	930 ms
+	rx bytes:	45317
+	rx packets:	457
+	tx bytes:	34845
+	tx packets:	333
+	tx retries:	17
+	tx failed:	0
+	signal:  	-42 [-42, -50] dBm
+	signal avg:	-46 [-47, -53] dBm
+	tx bitrate:	144.4 MBit/s MCS 15 short GI
+	rx bitrate:	6.0 MBit/s
+	expected throughput:	47.57Mbps
+	authorized:	yes
+	authenticated:	yes
+	preamble:	short
+	WMM/WME:	yes
+	MFP:		no
+	TDLS peer:	no
+	connected time:	45 seconds
+
+Station f4:5c:89:95:c8:3b (on open2)
+	inactive time:	540 ms
+	rx bytes:	12894
+	rx packets:	105
+	tx bytes:	1615
+	tx packets:	11
+	tx retries:	0
+	tx failed:	0
+	signal:  	-34 [-40, -35] dBm
+	signal avg:	-33 [-38, -35] dBm
+	tx bitrate:	130.0 MBit/s MCS 14 short GI
+	rx bitrate:	24.0 MBit/s
+	expected throughput:	45.43Mbps
+	authorized:	yes
+	authenticated:	yes
+	preamble:	short
+	WMM/WME:	yes
+	MFP:		no
+	TDLS peer:	no
+	connected time:	7 seconds

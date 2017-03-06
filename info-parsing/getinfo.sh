@@ -1,10 +1,23 @@
 #!sh
 ip route
-printf "\n --- \n\n"
-iw dev phy0 station dump
-printf "\n --- \n\n"
-arp -i eth0 -n
-printf "\n --- \n\n"
-swconfig dev eth0 list
-printf "\n --- \n\n"
+
+printf "\n ---\n\n"
+
+iw dev priv5 station dump
+iw dev open5 station dump
+iw dev mesh5 station dump
+iw dev priv2 station dump
+iw dev open2 station dump
+iw dev mesh2 station dump
+
+printf "\n ---\n\n"
+
+arp
+
+printf "\n ---\n\n"
+
+swconfig dev eth0 show
+
+printf "\n ---\n\n"
+
 ip addr

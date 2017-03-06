@@ -8,7 +8,7 @@ import thunk from 'redux-thunk'
 import App from './components/App.js'
 import { loadSession } from './actions/index.js'
 import actionType from './actions/types.js'
-import infoParse from './libs/info-parse.js'
+import infoParse from './libs/info-parse/index.js'
 
 const store = createStore(rootReducer, compose(
   applyMiddleware(thunk)
