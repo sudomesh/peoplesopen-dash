@@ -34,9 +34,7 @@ itemScope = item => (line, output) => {
 		return globalScope(line, output)
 	}
 
-	const res = regexes.selectKV.exec(line)
-	const key = res[1]
-	const value = res[2]
+	const [,key,value] = regexes.selectKV.exec(line)
 
 	if (line.match(regexes.map)) {
 		item[key] = parseMap(value)
