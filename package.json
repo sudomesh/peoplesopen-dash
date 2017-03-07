@@ -11,7 +11,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
     "node-sass": "^3.10.1",
-    "react-scripts": "0.8.4"
+    "react-scripts": "0.9.4"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.5",
@@ -36,6 +36,7 @@
     "background-sass-watcher": "node-sass --watch --recursive src/index.scss -o src/css & WATCH_SASS_PID=$!",
     "compile-sass": "node-sass --recursive src/index.scss -o src/css",
     "start": "npm run compile-sass && npm run background-sass-watcher && npm run dev-server",
-    "build": "npm run compile-sass && node react-scripts build"
+    "build": "npm run compile-sass && node react-scripts build",
+    "test": "react-scripts test"
   }
 }

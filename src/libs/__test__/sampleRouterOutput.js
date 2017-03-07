@@ -1,13 +1,4 @@
-import test from 'tape'
-import parser from './index.js'
-
-let routerOutput
-
-test('parse example string', t => {
-  console.log(parser(routerOutput))
-})
-
-routerOutput = `default via 10.0.0.3 dev eth0  proto babel onlink
+export default `default via 10.0.0.3 dev eth0  proto babel onlink
 10.0.0.1 via 10.0.0.3 dev eth0  proto babel onlink
 10.0.0.2 via 10.0.0.2 dev eth0  proto babel onlink
 10.0.0.3 via 10.0.0.3 dev eth0  proto babel onlink

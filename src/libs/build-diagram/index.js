@@ -4,6 +4,8 @@ export default function buildConfigDiagram (routerInfo) {
         radios: buildRadiosDiagram(routerInfo),
         ports: buildPortsDiagram(routerInfo)
     }
+
+    return diagram
 }
 
 function buildPortsDiagram (routerInfo) {
@@ -11,7 +13,7 @@ function buildPortsDiagram (routerInfo) {
 }
 
 function buildRadiosDiagram (routerInfo) {
-    const { stations } = routerInfo
+    const { wifi } = routerInfo
     const radios = {
         0: {
             name: "2.4ghz radio",
@@ -23,45 +25,47 @@ function buildRadiosDiagram (routerInfo) {
         }
     }
 
-    if (stations.open2) {
+    if (wifi.open2) {
         radios[0].deviceIcons.push({
             type: "client",
             network: "public",
-            number: Object.keys(stations.open2).length
+            number: Object.keys(wifi.open2).length
         })
     }
-    if (stations.priv2) {
+    if (wifi.priv2) {
         radios[0].deviceIcons.push({
             type: "client",
             network: "private",
-            number: Object.keys(stations.priv2).length
+            number: Object.keys(wifi.priv2).length
         })
     }
-    if (stations.mesh2) {
+    if (wifi.mesh2) {
         radios[0].deviceIcons.push({
             type: "localmesh",
             internet: true
         })
     }
 
-    if (stations.open5) {
+    if (wifi.open5) {
         radios[1].deviceIcons.push({
             type: "client",
             network: "public",
-            number: Object.keys(stations.open5).length
+            number: Object.keys(wifi.open5).length
         })
     }
-    if (stations.priv5) {
+    if (wifi.priv5) {
         radios[1].deviceIcons.push({
             type: "client",
             network: "private",
-            number: Object.keys(stations.priv5).length
+            number: Object.keys(wifi.priv5).length
         })
     }
-    if (stations.mesh5) {
+    if (wifi.mesh5) {
         radios[1].deviceIcons.push({
             type: "localmesh",
             internet: true
         })
     }
+
+    return radios
 }
