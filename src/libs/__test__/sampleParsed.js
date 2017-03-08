@@ -188,7 +188,6 @@ export default {
     }
   },
   "ports": {
-    "ports": {},
     "Global attributes": {
       "enable_vlan": "1"
     },

@@ -14,7 +14,7 @@ const regexes = {
 
 export default function parseSwconfig(swOutput) {
 	const lines = swOutput.split('\n').filter(line => line.length > 0)
-	const output = { ports: {} }
+	const output = {}
 
 	lines.reduce((fn, line) => {
 		return fn(line, output)
