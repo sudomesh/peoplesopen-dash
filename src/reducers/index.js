@@ -1,5 +1,6 @@
 import actionType from '../actions/types.js'
-
+import infoParse from '../libs/info-parse/index.js'
+import buildDiagram from '../libs/build-diagram/index.js'
 
 const initialState = {
   neighbors: [ 
@@ -42,9 +43,11 @@ export default function rootReducer (state = initialState, action) {
       }
 
     case actionType('got router info'):
+      const parsed = infoParse(payload)
       return {
         ...state,
-        routerInfo: payload
+        routerInfo: parsed,
+        connectionDiagram: buildDiagram(parsed)
       }
 
     case actionType('hashchange'):

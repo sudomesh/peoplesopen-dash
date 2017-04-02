@@ -2,7 +2,7 @@ import Ubus from '../libs/ubus.js'
 import check from 'check-types'
 import config from '../config.js'
 import actionType from './types.js'
-import infoParse from '../libs/info-parse/index.js'
+import sampleRouterInfo from '../libs/__test__/sampleRouterOutput.js'
 
 const ubus = new Ubus(config.ubusUrl)
 
@@ -136,7 +136,7 @@ export function getRouterInfo () {
   return async (dispatch, getState) => {
     return dispatch({
       type: actionType('got router info'),
-      payload: infoParse()
+      payload: sampleRouterInfo
     })
   }
 }
