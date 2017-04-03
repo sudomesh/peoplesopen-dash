@@ -44,10 +44,12 @@ export default function rootReducer (state = initialState, action) {
 
     case actionType('got router info'):
       const parsed = infoParse(payload)
+      const diagramSchema = buildDiagram(parsed)
+
       return {
         ...state,
         routerInfo: parsed,
-        connectionDiagram: buildDiagram(parsed)
+        connectionDiagram: diagramSchema
       }
 
     case actionType('hashchange'):

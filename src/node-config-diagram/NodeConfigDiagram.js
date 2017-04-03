@@ -36,7 +36,7 @@ function NodeConfigDiagram ({ ports, radios }) {
           ></DeviceBox>
       </div>
       }
-      <div style={{ ...labelText, position: "absolute", width: 200, top: 200, left: 0}}>{`Connected over ${radios[0].name}`}</div>
+      <div style={{ ...labelText, position: "absolute", width: 200, top: 200, left: 800}}>{`Connected over ${radios[1].name}`}</div>
 
       { ports[0] &&
       <div style={{

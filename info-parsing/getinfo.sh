@@ -1,4 +1,7 @@
 #!sh
+echo "Content-type: text/html"
+echo
+
 ip route
 
 printf "\n ---\n\n"

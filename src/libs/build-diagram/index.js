@@ -8,31 +8,40 @@ export default function buildConfigDiagram(routerInfo) {
 }
 
 function buildPortsDiagram(routerInfo) {
-  const ports = {
-    3: {
+  const ports = {}
+
+  if (routerInfo.ports['Port 3'].link.link === 'up') {
+    ports[3] = {
       name: "port 3",
       connectionIcon: "publicEthernet",
-      deviceIcons: []
-    },
-    4: {
-      name: "port 4",
-      connectionIcon: "privateEthernet",
-      deviceIcons: []
+      deviceIcons: [{
+        type: "unknownDevice",
+        number: 1
+      }]
     }
   }
 
-  if (routerInfo.ports['Port 3'].link.link === 'up') {
-    ports[3].deviceIcons.push({
-      type: "unknownDevice",
-      number: 1
-    })
+  if (routerInfo.ports['Port 2'].link.link === 'up') {
+    ports[4] = {
+      name: "port 4",
+      connectionIcon: "privateEthernet",
+      deviceIcons: [{
+        type: "unknownDevice",
+        number: 1
+      }]
+    }
   }
 
-  if (routerInfo.ports['Port 2'].link.link === 'up') {
-    ports[4].deviceIcons.push({
-      type: "unknownDevice",
-      number: 1
-    })
+  if (routerInfo.l2tp) {
+    ports[0] = {
+      name: "WAN port",
+      connectionIcon: "internetTunnel",
+      deviceIcons: [
+        {
+          type: "meshExit"
+        }
+      ]
+    }
   }
 
   return ports

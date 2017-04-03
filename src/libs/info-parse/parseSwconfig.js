@@ -8,7 +8,7 @@ const regexes = {
 	nonIndented: /^[^\t]/,
 	map: /\w+:.*\S+:\S+.*/,
 	list: /\w+: [^:]+ [^:]+$/,
-	value: /\w+: [^: ]+$/,
+	value: /\w+: [^:]+$/,
 	selectKV: /^\t(.*): (.*)/
 }
 

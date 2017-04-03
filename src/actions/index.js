@@ -134,9 +134,11 @@ export function callUbus (object, method, args) {
 
 export function getRouterInfo () {
   return async (dispatch, getState) => {
+    const response = await (await fetch(config.infogatherUrl)).text()
+
     return dispatch({
       type: actionType('got router info'),
-      payload: sampleRouterInfo
+      payload: response
     })
   }
 }
