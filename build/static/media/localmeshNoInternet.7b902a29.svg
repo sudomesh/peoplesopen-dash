@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100px" height="65px" viewBox="0 0 100 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>localmesh-nointernet</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="localmesh-no-internet">
+            <g id="localmesh-nointernet">
+                <g id="mesh-only" transform="translate(24.000000, 6.000000)">
+                    <g id="sudo-logo">
+                        <g id="points" fill="#898989">
+                            <ellipse id="Oval-2" cx="6.09375" cy="18.3473544" rx="6.09375" ry="6.14436322"></ellipse>
+                            <ellipse id="Oval-2" cx="6.09375" cy="40.4289574" rx="6.09375" ry="6.14436322"></ellipse>
+                            <ellipse id="Oval-2" cx="25.6882267" cy="6.14436322" rx="6.09375" ry="6.14436322"></ellipse>
+                            <ellipse id="Oval-2" cx="45.8590116" cy="18.3473544" rx="6.09375" ry="6.14436322"></ellipse>
+                            <ellipse id="Oval-2" cx="45.8590116" cy="41.0100522" rx="6.09375" ry="6.14436322"></ellipse>
+                            <ellipse id="Oval-2" cx="25.6882267" cy="51.8150471" rx="6.09375" ry="6.14436322"></ellipse>
+                            <ellipse id="Oval-2" cx="25.6882267" cy="29.1523493" rx="6.09375" ry="6.14436322"></ellipse>
+                        </g>
+                        <g id="line" transform="translate(3.250000, 4.901408)" stroke="#898989" stroke-width="5" stroke-linecap="square">
+                            <path d="M22.34375,46.9718294 L22.34375,4.92246261" id="Line"></path>
+                            <path d="M2.22492733,12.4766952 L21.8194041,0.854798896" id="Line"></path>
+                            <path d="M2.22492733,12.4766952 L42.6562504,36.3521123" id="Line"></path>
+                            <path d="M41.990189,12.4766952 L21.8194041,0.854798896" id="Line"></path>
+                            <path d="M2.03125,12.4766952 L2.03125,35.1393931" id="Line"></path>
+                            <path d="M41.8437494,13.4788732 L1.64861919,35.1393931" id="Line"></path>
+                            <path d="M20.6667878,47.3423842 L1.64861919,35.1393931" id="Line"></path>
+                            <path d="M21.8194041,46.7612894 L41.4138808,36.3015827" id="Line"></path>
+                            <path d="M42.65625,13.05779 L42.65625,32.8150138" id="Line"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

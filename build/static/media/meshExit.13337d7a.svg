@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100px" height="65px" viewBox="0 0 100 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>mesh-exit</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="69" height="17.1093414" rx="5"></rect>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.298256803   0 0 0 0 0.298256803   0 0 0 0 0.298256803  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-3" x="0" y="3.55271368e-15" width="69" height="17.1093414" rx="5"></rect>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.298256803   0 0 0 0 0.298256803   0 0 0 0 0.298256803  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-5" x="0" y="-7.10542736e-15" width="69" height="17.1093414" rx="5"></rect>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.298256803   0 0 0 0 0.298256803   0 0 0 0 0.298256803  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.747141078 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="MESH-EXIT">
+            <g id="mesh-exit-server">
+                <g id="rack" transform="translate(16.000000, 6.000000)">
+                    <g id="Rectangle-19">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#7E7E7E" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <path d="M9.98684211,5.26875126 L9.98684211,12.6895277" id="Line" stroke="#4E4E4E" stroke-width="4" stroke-linecap="square"></path>
+                    <path d="M16.3421053,5.26875126 L16.3421053,12.6895277" id="Line" stroke="#4E4E4E" stroke-width="4" stroke-linecap="square"></path>
+                    <path d="M22.6973684,5.26875126 L22.6973684,12.6895277" id="Line" stroke="#4E4E4E" stroke-width="4" stroke-linecap="square"></path>
+                    <ellipse id="Oval-3" fill="#F6A623" cx="61.7368421" cy="8.97913947" rx="2.72368421" ry="2.44885622"></ellipse>
+                    <ellipse id="Oval-3" fill="#A6E047" cx="53.5657895" cy="8.97913947" rx="2.72368421" ry="2.44885622"></ellipse>
+                </g>
+                <g id="rack" transform="translate(16.000000, 24.774564)">
+                    <g id="Rectangle-19">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                        <use fill="#7E7E7E" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    </g>
+                    <path d="M9.98684211,5.26875126 L9.98684211,12.6895277" id="Line" stroke="#4E4E4E" stroke-width="4" stroke-linecap="square"></path>
+                    <path d="M16.3421053,5.26875126 L16.3421053,12.6895277" id="Line" stroke="#4E4E4E" stroke-width="4" stroke-linecap="square"></path>
+                    <path d="M22.6973684,5.26875126 L22.6973684,12.6895277" id="Line" stroke="#4E4E4E" stroke-width="4" stroke-linecap="square"></path>
+                    <ellipse id="Oval-3" fill="#A6E047" cx="61.7368421" cy="8.97913947" rx="2.72368421" ry="2.44885622"></ellipse>
+                    <ellipse id="Oval-3" fill="#E0A847" cx="53.5657895" cy="8.97913947" rx="2.72368421" ry="2.44885622"></ellipse>
+                </g>
+                <g id="rack" transform="translate(16.000000, 43.549129)">
+                    <g id="Rectangle-19">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                        <use fill="#7E7E7E" fill-rule="evenodd" xlink:href="#path-5"></use>
+                    </g>
+                    <path d="M9.98684211,5.26875126 L9.98684211,12.6895277" id="Line" stroke="#4E4E4E" stroke-width="4" stroke-linecap="square"></path>
+                    <path d="M16.3421053,5.26875126 L16.3421053,12.6895277" id="Line" stroke="#4E4E4E" stroke-width="4" stroke-linecap="square"></path>
+                    <path d="M22.6973684,5.26875126 L22.6973684,12.6895277" id="Line" stroke="#4E4E4E" stroke-width="4" stroke-linecap="square"></path>
+                    <ellipse id="Oval-3" fill="#A6E047" cx="61.7368421" cy="8.97913947" rx="2.72368421" ry="2.44885622"></ellipse>
+                    <ellipse id="Oval-3" fill="#A6E047" cx="53.5657895" cy="8.97913947" rx="2.72368421" ry="2.44885622"></ellipse>
+                </g>
+                <g id="sudo-logo" filter="url(#filter-7)" transform="translate(28.710526, 7.803279)">
+                    <g id="points" fill="#11A81C">
+                        <ellipse id="Oval-2" cx="5.42608964" cy="15.9722587" rx="5.42608964" ry="5.34896516"></ellipse>
+                        <ellipse id="Oval-2" cx="5.42608964" cy="35.1953614" rx="5.42608964" ry="5.34896516"></ellipse>
+                        <ellipse id="Oval-2" cx="22.8737019" cy="5.34896516" rx="5.42608964" ry="5.34896516"></ellipse>
+                        <ellipse id="Oval-2" cx="40.8344792" cy="15.9722587" rx="5.42608964" ry="5.34896516"></ellipse>
+                        <ellipse id="Oval-2" cx="40.8344792" cy="35.7012326" rx="5.42608964" ry="5.34896516"></ellipse>
+                        <ellipse id="Oval-2" cx="22.8737019" cy="45.1075029" rx="5.42608964" ry="5.34896516"></ellipse>
+                        <ellipse id="Oval-2" cx="22.8737019" cy="25.3785291" rx="5.42608964" ry="5.34896516"></ellipse>
+                    </g>
+                    <g id="line" transform="translate(2.893914, 4.266913)" stroke="#11A81C" stroke-width="5" stroke-linecap="square">
+                        <path d="M19.895662,40.8912478 L19.895662,4.28524162" id="Line"></path>
+                        <path d="M1.98115366,10.8615662 L19.4287659,0.744143754" id="Line"></path>
+                        <path d="M1.98115366,10.8615662 L37.9826279,31.6462707" id="Line"></path>
+                        <path d="M37.3895433,10.8615662 L19.4287659,0.744143754" id="Line"></path>
+                        <path d="M1.80869655,10.8615662 L1.80869655,30.59054" id="Line"></path>
+                        <path d="M37.2591483,11.7340106 L1.46798859,30.59054" id="Line"></path>
+                        <path d="M18.4024358,41.2138336 L1.46798859,30.59054" id="Line"></path>
+                        <path d="M19.4287659,40.7079625 L36.8763782,31.6022823" id="Line"></path>
+                        <path d="M37.9826275,11.3674373 L37.9826275,28.5670555" id="Line"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
