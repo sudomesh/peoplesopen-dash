@@ -1,5 +1,7 @@
 # PeoplesOpen.net dashboard
 
+[![Build Status](https://travis-ci.org/sudomesh/peoplesopen-dash.svg?branch=master)](https://travis-ci.org/sudomesh/peoplesopen-dash)
+
 ![](homeScreen.png)
 
 This is the dashboard that is shown to users of PeoplesOpen.net to allow them to learn about and configure their home nodes. It has 2 main goals: allow less-advanced users to see what their node has been doing and to allow more-advanced users to configure their node more easily.
@@ -31,3 +33,4 @@ This is meant to be a pretty typical React-Redux application. You should be able
 ![](connectionsScreen.png)
 ----
 ![](wifiSettingsScreen.png)
+

@@ -1,4 +1,5 @@
 export default {
+  "l2tp": false,
   "routes": {
     "list": [{
         "destination": "default",
