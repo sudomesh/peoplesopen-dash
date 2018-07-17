@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 import LoginScreen from './LoginScreen.js'
 import SharingSettingsModal from './SharingSettingsModal.js'
 import SharingConfigForm from './SharingConfigForm.js'
+import SystemConfigForm from './SystemConfigForm.js'
 
 const propType = React.PropTypes
 
@@ -78,6 +79,23 @@ class Frontpage extends Component {
 
           <p style={ styles.item }>So far, you've transferred <b>{ props.totalTransfered }</b> of data between neighbor routers.</p>
         </div>*/}
+        <div style={styles.section}>
+          <h3>System Settings:</h3>
+
+          { !props.isSharing ?
+            <div>
+              <p style={ styles.item }>Change some of your router's system settings.</p>
+
+              {/*<p style={ styles.item }>You have shared <b>{ props.totalShared }</b> this month.</p>*/}
+
+              <div style={ styles.item }>
+                <SystemConfigForm/>
+              </div>
+            </div>
+          :
+            <div style={ styles.item }>Your home internet connection is currently <b>not</b> being shared on the mesh network. If you'd like to securely donate a small portion of your own bandwidth to this project, <a tabIndex={0} onClick={ this.toggleModal }>click here to start sharing</a>.</div>
+          }
+        </div>
 
         <div style={styles.section}>
           <h3>Sharing:</h3>

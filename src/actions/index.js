@@ -63,9 +63,11 @@ export function changePassword (credentials) {
   return callUbus('password', 'set', credentials)
 }
 
+// To add a new UCI config to be fetched ...
 export function fetchUciConfigs () {
   return async (dispatch, getState) => {
     const configNames = [
+      'system',
       'wireless',
       'tunneldigger'
     ]
@@ -80,6 +82,23 @@ export function fetchUciConfigs () {
       type: actionType('got uci configs'),
       payload: configs
     })
+  }
+}
+
+export function changeSystemConfig (toChange, value) {
+  return async (dispatch, getState) => {
+    const { uciConfigs: { wireless: { interfaces } } } = getState()
+    await dispatch(callUbus('uci', 'set', {
+      config: 'system',
+      section: '@system[0]',
+      values: {
+        [toChange]: value
+      }
+    }))
+
+    return dispatch(callUbus('uci', 'commit', {
+      config: 'system'
+    }))
   }
 }
 
