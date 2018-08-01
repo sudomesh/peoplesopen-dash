@@ -76,6 +76,14 @@ export function fetchUciConfigs () {
     await Promise.all(configNames.map(async config => {
       const { values } = await dispatch(callUbus('uci', 'get', { config }))
       configs[config] = values
+      // get system hostname
+      if(config === 'system'){
+	  Object.values(configs[config]).map((type) => {
+          if(type.hasOwnProperty('hostname')){
+	      console.log(type.hostname)
+	  }
+        })
+      }
     }))
 
     return dispatch({
@@ -87,10 +95,10 @@ export function fetchUciConfigs () {
 
 export function changeSystemConfig (toChange, value) {
   return async (dispatch, getState) => {
-    const { uciConfigs: { wireless: { interfaces } } } = getState()
+    //const { uciConfigs: { system: { interfaces } } } = getState()
     await dispatch(callUbus('uci', 'set', {
       config: 'system',
-      section: '@system[0]',
+      section: 'led_lan1',//'@system[0]',
       values: {
         [toChange]: value
       }
