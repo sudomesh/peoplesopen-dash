@@ -1,16 +1,12 @@
-import Ubus from '../libs/ubus.js'
 import check from 'check-types'
 import config from '../config.js'
 import actionType from './types.js'
-import sampleRouterInfo from '../libs/__test__/sampleRouterOutput.js'
-
-const ubus = new Ubus(config.ubusUrl)
+import ubusAPI from './ubusAPI.js'
+import infogatherAPI from './infogatherAPI.js'
 
 export function login (password) {
   return async (dispatch, getState) => {
-    const {
-      ubus_rpc_session
-    }  = await ubus.call(null, 'session', 'login', { username: config.username, password })
+    const { ubus_rpc_session } = await ubusAPI.login(config.username, password)
 
     check.assert.nonEmptyString(
       ubus_rpc_session,
@@ -49,7 +45,7 @@ export function logout (dispatch) {
   return async (dispatch, getState) => {
     const sessionID = localStorage.getItem('sessionID')
     if (sessionID) {
-      await dispatch(callUbus('session', 'destroy', { sessionID }))
+      await dispatch(ubusAPI.logout(sessionID))
     }
     localStorage.setItem('sessionID', null)
 
@@ -72,7 +68,7 @@ export function fetchUciConfigs () {
     const configs = {} 
 
     await Promise.all(configNames.map(async config => {
-      const { values } = await dispatch(callUbus('uci', 'get', { config }))
+      const { values } = await dispatch(ubusAPI.getConfig(config))
       configs[config] = values
     }))
 
@@ -86,56 +82,22 @@ export function fetchUciConfigs () {
 export function changeWirelessConfig (ifname, toChange, value) {
   return async (dispatch, getState) => {
     const { uciConfigs: { wireless: { interfaces } } } = getState()
-    await dispatch(callUbus('uci', 'set', {
-      config: 'wireless',
-      section: interfaces[ifname]['.name'],
-      values: {
-        [toChange]: value
-      }
-    }))
-
-    return dispatch(callUbus('uci', 'commit', {
-      config: 'wireless'
-    }))
+    const section = interfaces[ifname]['.name']
+    await dispatch(ubusAPI.setWirelessConfig(section, toChange, value))
+    return dispatch(ubusAPI.commitConfig('wireless'))
   }
 }
 
 export function changeTunneldiggerConfig (toChange, value) {
   return async (dispatch, getState) => {
-    await dispatch(callUbus('uci', 'set', {
-      config: 'tunneldigger',
-      section: 'main',
-      values: {
-        [toChange]: value
-      }
-    }))
-
-    return dispatch(callUbus('uci', 'commit', {
-      config: 'tunneldigger'
-    }))
-  }
-}
-
-export function callUbus (object, method, args) {
-  return async (dispatch, getState) => {
-    const sessionID = localStorage.getItem('sessionID') || null
-
-    try {
-      return ubus.call(sessionID, object, method, args)
-    } catch (e) {
-      if (e.message.match(/session_expired/)) {
-        dispatch(logout())
-      } else {
-        throw e
-      }
-    }
+    await dispatch(ubusAPI.setTunneldiggerConfig(toChange, value))
+    return dispatch(ubusAPI.commitConfig('tunneldigger'))
   }
 }
 
 export function getRouterInfo () {
   return async (dispatch, getState) => {
-    const response = await (await fetch(config.infogatherUrl)).text()
-
+    const response = await infogatherAPI.getRouterInfo()
     return dispatch({
       type: actionType('got router info'),
       payload: response
