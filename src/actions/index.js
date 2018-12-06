@@ -55,10 +55,6 @@ export function logout (dispatch) {
   }
 }
 
-export function changePassword (credentials) {
-  return callUbus('password', 'set', credentials)
-}
-
 export function fetchUciConfigs () {
   return async (dispatch, getState) => {
     const configNames = [
